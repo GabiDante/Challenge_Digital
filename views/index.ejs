@@ -1,10 +1,24 @@
 
  <%- include("header") -%>
   <h1>Hello World</h1>
-  <% products.forEach(product => {%> 
-    <article class="card-product">
-      <h3><%=product.name%></h3>
-      <% }) %>
+    
+  
+      <% images.forEach(image => {%> 
+        <article class="card-product-photo">
+        <img src="<%=image.url%>">  
+          <% }) %>
+
+          <% products.forEach(product => {%> 
+            <article class="card-product-description">
+              <h3><%=product.name%></h3>
+              <h3><%=product.description%></h3>
+              <h3><%=product.brands.name%></h3>
+              <h3> <u1s>U$S</u1s> <%=product.price%></h3>
+               
+              <% }) %>
+
+         
+    
 
   <%- include("footer") -%>
 

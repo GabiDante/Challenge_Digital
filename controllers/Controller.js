@@ -4,14 +4,16 @@ let db = require("../data/models");
 const Controller = {
 
     index: (req, res) => {
-        db.Product.findAll()
-        .then(function(products){
-            res.render("index",{products:products})
+        let giveProduct = db.Product.findAll({include:[{association:"brands"},{association:"materials"},{association:"colors"}]})
+        let giveimages = db.Image.findAll()
+        
+
+        Promise.all([giveProduct,giveimages])
+        .then(function([products,images]){
+            res.render("index",{products:products, images:images})
         })
 
     }
-
-
-    }
+}
 
 module.exports = Controller

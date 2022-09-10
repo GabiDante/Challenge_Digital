@@ -9,6 +9,9 @@ module.exports = function (sequelize, DataTypes) {
         },
         product_id: {
             type: DataTypes.INTEGER
+        },
+        url : { 
+            type : DataTypes.STRING(500)
         }
     }
     let config ={
