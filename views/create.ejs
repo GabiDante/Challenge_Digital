@@ -1,0 +1,83 @@
+<%- include("partials/header") -%>
+
+<h4> Creacion de productos </h4>
+
+
+<main class="main-form">
+
+    <form action="/create" method="POST" class="form-product" >
+        <div class="personal-information">
+            <div class="title-information"><h3>Crear producto</h3></div>
+             
+      
+ 
+       <div class="first">
+
+           <div class="main-link">
+            <input type="text" name="name" placeholder="Nombre del producto" class="input name">
+
+        </div>
+        <div class="brand-main">
+
+            <div class="brand-select">
+             <select name="brand" > 
+                <% for ( let i = 0 ; i < brand.length ; i++ ) { %>
+                <option value="<%= brand[i].id%>"> 
+                        <%= brand[i].name %> 
+                </option>
+                <% } %> 
+             </select>
+
+             <div class="color-select">
+                <select name="color" > 
+                   <% for ( let i = 0 ; i < color.length ; i++ ) { %>
+                   <option value="<%= color[i].id%>"> 
+                           <%= color[i].name %> 
+                   </option>
+                   <% } %> 
+                </select>
+                
+            <div class="material-select">
+                <select name="material" > 
+                    <% for ( let i = 0 ; i < material.length ; i++ ) { %>
+                    <option value="<%= material[i].id%>"> 
+                               <%= material[i].name %> 
+                    </option>
+                    <% } %> 
+                    </select>
+            <div class="precio">
+
+                <div class="precio-link">
+                <input type="text" name="price" placeholder="valor">
+             
+            </div>        
+            <div class="descripcion">
+
+                <div class="descripcion-link">
+                <input type="text" name="description" placeholder="descripcion">
+             
+            </div>                  
+          
+         </div>
+         <button type="submit" > Crear Producto </button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("partials/footer") -%>
