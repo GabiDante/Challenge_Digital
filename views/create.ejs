@@ -15,7 +15,11 @@
 
            <div class="main-link">
             <input type="text" name="name" placeholder="Nombre del producto" class="input name">
-
+            <% if (locals.errors && errors.name) {%> 
+                <div class="text-danger">
+                  <%= errors.name.msg %> 
+                </div>
+                <% } %>        
         </div>
         <div class="brand-main">
 
@@ -25,6 +29,8 @@
                 <option value="<%= brand[i].id%>"> 
                         <%= brand[i].name %> 
                 </option>
+                     
+                
                 <% } %> 
              </select>
 
@@ -49,13 +55,21 @@
 
                 <div class="precio-link">
                 <input type="text" name="price" placeholder="valor">
-             
+                <% if (locals.errors && errors.name) {%> 
+                    <div class="text-danger">
+                      <%= errors.price.msg %> 
+                    </div>
+                    <% } %>     
             </div>        
             <div class="descripcion">
 
-                <div class="descripcion-link">
-                <input type="text" name="description" placeholder="descripcion">
-             
+                <div class="descripcion-link" name="descripcion">
+                <input type="text" name="descripcion" placeholder="descripcion">
+                <% if (locals.errors && errors.name) {%> 
+                    <div class="text-danger">
+                      <%= errors.descripcion.msg %> 
+                    </div>
+                    <% } %>     
             </div>                  
           
          </div>
