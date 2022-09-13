@@ -29,31 +29,6 @@ const APIcontroller = {
         })
     },
 
-    store:(req,res)=>{
-        db.products
-        .create(req.params.id)
-        .then(products =>{
-            return res.status(200).json({
-                data: products,
-                status:200,
-                created:"ok"
-            })
-        })
-    },
-
-    delete:(req,res)=>{
-        db.products
-        .destroy({
-            where:{
-                id:req.params.id
-            }
-    })
-        .then(response=>{
-
-            return res.json(response)
-        })
-    },
-
 
     }
 
