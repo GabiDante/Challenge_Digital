@@ -6,9 +6,9 @@ const validation = require('../middlewares/validation');
 router.get('/', Controller.index); 
 router.get('/create', Controller.create); 
 router.post('/create', validation, Controller.createProduct); 
-router.get("/edit/:id", validation , Controller.edit  )
+router.get("/edit/:id",  Controller.edit  )
 router.post("/edit/:id", validation , Controller.editProcess )
-router.delete('/delete/:id', Controller.destroy);
+router.post('/delete/:id', Controller.destroy);
 
 
 

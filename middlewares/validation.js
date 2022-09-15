@@ -12,8 +12,9 @@ const validation = [
     body("price").notEmpty().withMessage("Este campo no puede estar vacio").bail()
     .isNumeric().withMessage('El precio debe contener solo números'),
     body("descripcion").notEmpty().withMessage("Este campo no puede estar vacio").bail()
-    .isLength({min:10, max:250}).withMessage("La descripcion debe tener entre 10 y 250 caracteres")
-
+    .isLength({min:10, max:250}).withMessage("La descripcion debe tener entre 10 y 250 caracteres"),
+    body("url").notEmpty().withMessage("Este campo no puede estar vacio").bail()
+    .isURL({protocols: ['http','https','ftp']}).withMessage("Debes ingresar una url valida"),
 ]
 
 module.exports = validation;

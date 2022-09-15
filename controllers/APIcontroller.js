@@ -6,8 +6,20 @@ const APIcontroller = {
     //Aca va la logica//
     list : (req, res) => {
         db.Product
-        .findAll()
-        .then(products=>{
+        .findAll({
+            include: [{
+                association: "brands"
+            }, {
+                association: "materials"
+            }, {
+                association: "colors"
+            }]
+        })/* .then(product =>{ 
+            db.Image.findAll({where: { 
+                product_id: product.id ,
+                url: req.body.url
+            }}); 
+            }) */.then(products=>{
 
             return res.status(200).json({
                 total: products.length,
@@ -19,8 +31,7 @@ const APIcontroller = {
 
     },
     show:(req,res)=>{
-        db.Product
-        .findByPK(req.params.id)
+        db.Product.findByPk(req.params.id)
         .then(product =>{
             return res.status(200).json({
                 data: product,

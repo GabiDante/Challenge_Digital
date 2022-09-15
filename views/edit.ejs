@@ -90,12 +90,21 @@
                       <%= errors.descripcion.msg %> 
                     </div>
                     <% } %>     
-            </div>                  
+            </div>      
+            <div  class="form-label">
+                <input type="text" name="url" placeholder="url de tu imagen" class="form-label">
+                <% if (locals.errors && errors.name) {%> 
+                    <div class="text-danger">
+                      <%= errors.url.msg %> 
+                    </div>
+                    <% } %>                
           
          </div>
          <button type="submit" class="btn btn-warning" > editar producto </button>
+        </form>
+         <form action="/delete/<%= products.id %>" method="POST" class="form-product" >
          <button type="submit" class="btn btn-danger" > eliminar producto </button>
-        
+         </form>   
 
 
 

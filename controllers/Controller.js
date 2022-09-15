@@ -124,6 +124,7 @@ const Controller = {
 
         editProcess: (req, res) => {
             const resultValidation = validationResult(req)
+            
     
             if (resultValidation.errors.length > 0) {
                 let giveProduct = db.Product.findByPk(req.params.id)
@@ -135,7 +136,7 @@ const Controller = {
                 let giveBrand = db.Brand.findAll()
                 let giveColor = db.Color.findAll()
                 let giveMaterial = db.Material.findAll()
-    
+                    
                 Promise.all([giveProduct, giveImages, giveBrand, giveColor, giveMaterial])
                     .then(function ([products, images, brand, color, material]) {
                         res.render("edit", {
@@ -177,7 +178,7 @@ const Controller = {
 	    destroy : (req, res) => {
 		let productId = req.params.id
 
-		db.Products.destroy({
+		db.Product.destroy({
 	
 			where: { id: productId}
 	
