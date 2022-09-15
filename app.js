@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 
+
+
 const API = require('./routes/APIrouter');
 const index = require('./routes/Router');
 
@@ -24,6 +26,7 @@ app.use(methodOverride('_method'));
 
 //app.use(API, '/api')
 app.use(index)
+app.use("/api", API)
 
 
 

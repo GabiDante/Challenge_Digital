@@ -5,7 +5,7 @@ const APIcontroller = {
 
     //Aca va la logica//
     list : (req, res) => {
-        db.products
+        db.Product
         .findAll()
         .then(products=>{
 
@@ -19,11 +19,11 @@ const APIcontroller = {
 
     },
     show:(req,res)=>{
-        db.products
+        db.Product
         .findByPK(req.params.id)
-        .then(products =>{
+        .then(product =>{
             return res.status(200).json({
-                data: products,
+                data: product,
                 status:200
             })
         })

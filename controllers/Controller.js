@@ -87,6 +87,11 @@ const Controller = {
                 material_id: req.body.material,
                 price: req.body.price,
                 description: req.body.descripcion
+            }).then(product =>{ 
+                db.Image.create({ 
+                    product_id: product.id ,
+                    url: req.body.url
+                }) 
             })
 
             res.redirect("/")
@@ -167,7 +172,17 @@ const Controller = {
                 res.redirect("/")
     
         }
-    }
+    },
+        // Delete - Delete one product from DB
+	    destroy : (req, res) => {
+		let productId = req.params.id
+
+		db.Products.destroy({
+	
+			where: { id: productId}
+	
+		}).then(() => res.redirect("/"))
+	}
 
 }
 module.exports = Controller
