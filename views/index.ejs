@@ -5,10 +5,9 @@
   <div class="row">
     <div class="col">
       1 of 2
-      <% images.forEach(image => {%> 
-      <img src="<%=image.url%>" class="img-fluid" alt="...">
-      <% }) %>
+      
       <% products.forEach(product => {%> 
+      <img src="<%= product && product.image && product.image.url %>" class="img-fluid" alt="...">
         <article class="card-product-description">
           <h3><%=product.name%></h3>
           <h3><%=product.description%></h3>
@@ -16,76 +15,9 @@
           <h3> <u1s>U$S</u1s> <%=product.price%></h3>
            
           <% }) %>
-
-    </div>
-    <div class="col">
-      2 of 2
-    </div>
-  </div>  
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card h-100">
-        <% images.forEach(image => {%>
-        <img src="<%=image.url%>" class="card-img-top" alt="...">
-        <% }) %>
-        <div class="card-body">
-          <% products.forEach(product => {%> 
-          <h5 class="card-title"> <%=product.name%> </h5>
-          <p class="card-text"><%=product.description%> <%=product.brands.name%></p>
-          <%=product.price%>
-          <% }) %>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a short card.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-    
-  
-      <% images.forEach(image => {%> 
-        <article class="card-product-photo">
-        <img src="<%=image.url%>">  
-          <% }) %>
-
-          <% products.forEach(product => {%> 
-            <article class="card-product-description">
-              <h3><%=product.name%></h3>
-              <h3><%=product.description%></h3>
-              <h3><%=product.brands.name%></h3>
-              <h3> <u1s>U$S</u1s> <%=product.price%></h3>
-               
-              <% }) %>
-
-          
-                </div>
-            </section>
-         
+     
+     
+           
     
 
   <%- include("partials/footer") -%>

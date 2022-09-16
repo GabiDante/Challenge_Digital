@@ -13,7 +13,10 @@ const APIcontroller = {
                 association: "materials"
             }, {
                 association: "colors"
-            }]
+            },  {
+                association: "image"
+            }
+        ]
         })/* .then(product =>{ 
             db.Image.findAll({where: { 
                 product_id: product.id ,
@@ -39,10 +42,23 @@ const APIcontroller = {
             })
         })
     },
+    brandName:(req,res)=>{
+        db.Brand.findAll({
+            include: [{
+                association: "products"
+            }]
+        })
+        .then(brand =>{
+            return res.status(200).json({
+                data: brand,
+                status:200
+            })
+        })
+    },
+
 
 
     }
 
-module.exports = APIcontroller
 
-//to do falta el endpoint de listado de todas las marcas con sus productos
+module.exports = APIcontroller

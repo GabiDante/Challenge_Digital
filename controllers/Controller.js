@@ -8,7 +8,9 @@ const Controller = {
             include:[
                 {association:"brands"},
                 {association:"materials"},
-                {association:"colors"}
+                {association:"colors"},
+                {association: "image"}
+
             ]})
 
             let giveimages = db.Image.findAll()
@@ -16,6 +18,8 @@ const Controller = {
 
         Promise.all([giveProduct,giveimages])
         .then(function([products,images]){
+              console.log("🚀 ~ file: Controller.js ~ line 19 ~ .then ~ products", products)
+              
             res.render("index",
             {
              products:products, 

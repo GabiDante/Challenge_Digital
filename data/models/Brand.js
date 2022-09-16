@@ -18,8 +18,13 @@ module.exports = function (sequelize, DataTypes) {
 
     let brand = sequelize.define(alias, cols, config)
 
+    brand.associate = function(models){
+        brand.hasMany(models.Product,{
+            as: "products",
+            foreignKey: "brand_id"
+        })
  
-    
+    }
 
     return brand
 }
