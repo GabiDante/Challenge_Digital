@@ -25,7 +25,7 @@ class PrimeraApi extends Component{
                     {product.brands.name}
                     {product.materials.name}
                     {product.colors.name}
-                    {Image.url}
+                    {product && product.image && product.image.url}
                     {product.description}
                     </div>
                 </div>

@@ -6,15 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import Footer from './components/Footer';
 import Topbar from './components/TopBar';
 import PrimeraApi from './components/PrimeraApi';
-
+import Brands from './components/Brands';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
+    <Topbar />
     <App />
+    <Brands />
     
     <PrimeraApi />
+    <Footer />
   </React.StrictMode>
 );
 
