@@ -55,6 +55,30 @@ const APIcontroller = {
             })
         })
     },
+    ultimoProductoCreado:(req,res)=> {
+        db.Product.findAll({
+                include: [{
+                    association: "brands"
+                }, {
+                    association: "materials"
+                }, {
+                    association: "colors"
+                }, {
+                    association: "image"
+                }],
+                order: [["id" ,'DESC']],
+                limit: 1
+            })
+            .then(products =>{
+                return res.status(200).json({
+                    total: products.length,
+                    data: products,
+                    status: 200
+                })
+               }) 
+        }
+        
+    
 
 
 

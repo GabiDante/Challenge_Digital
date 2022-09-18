@@ -2,7 +2,7 @@
 
 <main class="main-form">
 
-    <form action="/edit/<%= products.id %>" method="POST" class="form-product" >
+    <form action="/edit/<%= products.id %>?_method=PUT" method="POST" class="form-product" >
         <div class="personal-information">
             <div class="title-information"><h3>Editar Producto</h3></div>
              
@@ -11,7 +11,7 @@
        <div class="first">
 
            <div class="main-link">
-            <input type="text" name="name" placeholder="Nombre del producto" class="input name" value="<%= products.name %>">
+            <input type="text" name="name" placeholder="Nombre del producto" class="input name" value="<%= products.name %>"  class="form-control"required>
             <% if (locals.errors && errors.name) {%> 
                 <div class="text-danger">
                   <%= errors.name.msg %> 
@@ -74,8 +74,8 @@
             <div class="precio">
 
                 <div class="precio-link">
-                <input type="text" name="price" placeholder="valor" value="<%= products.price %>">
-                <% if (locals.errors && errors.name) {%> 
+                <input type="text" name="price" placeholder="valor" value="<%= products.price %>" required>
+                <% if (locals.errors && errors.price) {%> 
                     <div class="text-danger">
                       <%= errors.price.msg %> 
                     </div>
@@ -84,29 +84,31 @@
             <div class="descripcion">
 
                 <div class="descripcion-link" name="descripcion">
-                <input type="text" name="descripcion" placeholder="descripcion" value="<%= products.description %>">
-                <% if (locals.errors && errors.name) {%> 
+                <input type="text" name="descripcion" placeholder="descripcion" value="<%= products.description %>"  required>
+                <% if (locals.errors && errors.descripcion) {%> 
                     <div class="text-danger">
                       <%= errors.descripcion.msg %> 
                     </div>
-                    <% } %>     
+                    <% } %>   
+                  </div>      
+                  <div  class="form-label">
+                      <input type="text" name="url" placeholder="url de tu imagen" class="form-label"  required>
+                      <% if (locals.errors && errors.url) {%> 
+                          <div class="text-danger">
+                            <%= errors.url.msg %> 
+                          </div>
+                          <% } %>                
+                
+               </div>  
             </div>      
-            <div  class="form-label">
-                <input type="text" name="url" placeholder="url de tu imagen" class="form-label">
-                <% if (locals.errors && errors.name) {%> 
-                    <div class="text-danger">
-                      <%= errors.url.msg %> 
-                    </div>
-                    <% } %>                
-          
-         </div>
+           
          <button type="submit" class="btn btn-warning" > editar producto </button>
         </form>
          <form action="/delete/<%= products.id %>" method="POST" class="form-product" >
          <button type="submit" class="btn btn-danger" > eliminar producto </button>
          </form>   
+        </div>
 
-
-
+</main>
 
 <%- include("partials/footer") -%>

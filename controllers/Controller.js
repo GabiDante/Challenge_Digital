@@ -18,7 +18,7 @@ const Controller = {
 
         Promise.all([giveProduct,giveimages])
         .then(function([products,images]){
-              console.log("🚀 ~ file: Controller.js ~ line 19 ~ .then ~ products", products)
+             
               
             res.render("index",
             {
@@ -103,8 +103,8 @@ const Controller = {
     }
         },
           edit: (req,res) => { 
-          let giveProduct = db.Product.findByPk(req.params.id)
-          let giveImages = db.Image.findAll({
+          let giveProduct = db.Product.findByPk(req.params.id,)
+          let giveImages = db.Image.findByPk(req.params.id,{
               include: [{
                   association: "products"
               }]
@@ -131,6 +131,7 @@ const Controller = {
             
     
             if (resultValidation.errors.length > 0) {
+                
                 let giveProduct = db.Product.findByPk(req.params.id)
                 let giveImages = db.Image.findAll({
                     include: [{
@@ -160,14 +161,15 @@ const Controller = {
                     color_id: req.body.color,
                     material_id: req.body.material,
                     price: req.body.price,
-                    description: req.body.description
+                    description: req.body.descripcion
                 }, {
                     where: {
                         id: req.params.id
                     }
                 })
                 db.Image.update({
-                    url: req.body.image
+                    
+                    url: req.body.url
                 },{
                     where:{
                         id: req.params.id

@@ -7,6 +7,7 @@ const APIcontroller = require('../controllers/APIcontroller')
 router.get('/products', APIcontroller.list);
 router.get ('/products/:id', APIcontroller.show);
 router.get('/brand',APIcontroller.brandName)
+router.get('/ultimoProductoCreado', APIcontroller.ultimoProductoCreado)
 
 
 module.exports = router;

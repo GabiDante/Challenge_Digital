@@ -14,7 +14,7 @@
        <div class="col-6">
 
            <div class="form-label mt-2" >
-            <input type="text" name="name" placeholder="Nombre del producto" >
+            <input type="text" name="name" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.image : null %>">
             
             <% if (locals.errors && errors.name) {%> 
                 <div class="text-danger">
@@ -55,8 +55,8 @@
             <div class="precio">
 
                 <div  class="form-label">
-                <input type="text" name="price" placeholder="valor" class="form-label">
-                <% if (locals.errors && errors.name) {%> 
+                <input type="text" name="price" placeholder="valor" class="form-label" value="<%= locals.oldData ? oldData.name : null %>">
+                <% if (locals.errors && errors.price) {%> 
                     <div class="text-danger">
                       <%= errors.price.msg %> 
                     </div>
@@ -64,19 +64,21 @@
             </div>        
             <div class="descripcion">
 
-                <div class="descripcion-link" name="descripcion" class="form-label">
-                <input type="text" name="descripcion" placeholder="descripcion" class="form-label">
-                <% if (locals.errors && errors.name) {%> 
+                <div class="descripcion-link" id="descripcion" name="descripcion" class="form-label">
+                <input type="text" id="descripcion" name="descripcion" placeholder="descripcion" class="form-label" value="<%= locals.oldData ? oldData.name : null %>">
+                  <% if (locals.errors && errors.descripcion) {%> 
                     <div class="text-danger">
                       <%= errors.descripcion.msg %> 
                     </div>
                     <% } %>     
+                    
+
             </div>   
             <div class="precio">
 
                 <div  class="form-label">
-                <input type="text" name="url" placeholder="url de tu imagen" class="form-label">
-                <% if (locals.errors && errors.name) {%> 
+                <input type="text" name="url" placeholder="url de tu imagen" class="form-label" value="<%= locals.oldData ? oldData.name : null %>">
+                <% if (locals.errors && errors.url) {%> 
                     <div class="text-danger">
                       <%= errors.url.msg %> 
                     </div>
