@@ -102,30 +102,30 @@ const Controller = {
 
     }
         },
-          edit: (req,res) => { 
-          let giveProduct = db.Product.findByPk(req.params.id,)
-          let giveImages = db.Image.findByPk(req.params.id,{
-              include: [{
-                  association: "products"
-              }]
-          })
-          let giveBrand = db.Brand.findAll()
-          let giveColor = db.Color.findAll()
-          let giveMaterial = db.Material.findAll()
-
-          Promise.all([giveProduct, giveImages, giveBrand, giveColor, giveMaterial])
-              .then(function ([products, images, brand, color, material]) {
-                  res.render("edit", {
-                      products: products,
-                      images: images,
-                      brand: brand,
-                      color: color,
-                      material: material,
-                                           
-                  })
-              }) 
-          },
-
+        edit: (req,res) => { 
+            let giveProduct = db.Product.findByPk(req.params.id,)
+            let giveImages = db.Image.findOne({
+                where: { product_id: req.params.id }, 
+                include: [{
+                    association: "products"
+                }]
+            })
+            let giveBrand = db.Brand.findAll()
+            let giveColor = db.Color.findAll()
+            let giveMaterial = db.Material.findAll()
+  
+            Promise.all([giveProduct, giveImages, giveBrand, giveColor, giveMaterial])
+                .then(function ([products, images, brand, color, material]) {
+                    res.render("edit", {
+                        products: products,
+                        images: images,
+                        brand: brand,
+                        color: color,
+                        material: material,
+                                             
+                    })
+                }) 
+            },
         editProcess: (req, res) => {
             const resultValidation = validationResult(req)
             
@@ -172,7 +172,7 @@ const Controller = {
                     url: req.body.url
                 },{
                     where:{
-                        id: req.params.id
+                        product_id: req.params.id 
                     }
     
                 })

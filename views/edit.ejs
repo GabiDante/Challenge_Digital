@@ -92,7 +92,7 @@
                     <% } %>   
                   </div>      
                   <div  class="form-label">
-                      <input type="text" name="url" placeholder="url de tu imagen" class="form-label"  required>
+                      <input type="text" name="url" placeholder="url de tu imagen" class="form-label" value="<%= images.url %>" >
                       <% if (locals.errors && errors.url) {%> 
                           <div class="text-danger">
                             <%= errors.url.msg %> 
